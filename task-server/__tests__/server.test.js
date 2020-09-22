@@ -25,11 +25,11 @@ afterAll(async () => {
     await request(app).delete('/todos/267');
 })
 
-// test the basic response of the spp - GET '/' returns 'Hello!'
+// test the basic response of the app - GET '/' returns 'Hello!'
 describe('GET /', () => {
     test('It should respond with Hello!', async () => {
         const response = await request(app).get('/');
-        expect(response.body).toEqual('Hello!');
+        expect(response.body).toBe('Hello!');
         expect(response.statusCode).toBe(200);
     });
 });
