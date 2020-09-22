@@ -22,7 +22,7 @@ app.get('/todos', (req, res) => {
 
 // GET default behaviour
 app.get('/', (req, res) => {
-    return res.json('Hello!');
+    return res.json('Hello');
 });
 
 // POST a new item
