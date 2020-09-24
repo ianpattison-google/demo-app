@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev-start": "nodemon server.js",
-    "test": "jest --coverage --coverageProvider=v8"
+    "test": "sh node_modules/.bin/jest",
+    "test:local": "jest --coverage --coverageProvider=v8"
   },
   "author": "",
   "license": "ISC",
