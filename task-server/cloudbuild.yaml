@@ -11,8 +11,7 @@ steps:
     args:
       - test
     id: test
-    dir: '/task-server'
-    entrypoint: npm
+    dir: 'task-server'
     waitFor: 
       - Buildpack
   - name: gcr.io/cloud-builders/docker
