@@ -10,7 +10,8 @@ steps:
   - name: gcr.io/cloud-builders/npm
     args:
       - test
-    id: Test
+      - '--prefix ./task-server'
+    id: test
     entrypoint: npm
     waitFor: 
       - Buildpack
@@ -20,7 +21,7 @@ steps:
       - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
     id: Push
     waitFor: 
-      - Test
+      - test
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     args:
       - run
