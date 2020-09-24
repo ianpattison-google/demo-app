@@ -11,6 +11,7 @@ steps:
     args:
       - test
     id: Test
+    entrypoint: npm
     waitFor: 
       - Buildpack
   - name: gcr.io/cloud-builders/docker
