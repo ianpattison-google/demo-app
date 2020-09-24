@@ -10,7 +10,7 @@ steps:
   - name: gcr.io/cloud-builders/npm
     args:
       - test
-      - '--prefix ./task-server'
+      - '--prefix task-server'
     id: test
     entrypoint: npm
     waitFor: 
