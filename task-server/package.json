@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev-start": "nodemon server.js",
-    "test": "sh node_modules/.bin/jest",
+    "test": "jest",
     "test:local": "jest --coverage --coverageProvider=v8"
   },
   "author": "",
