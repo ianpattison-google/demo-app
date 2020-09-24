@@ -10,8 +10,8 @@ steps:
   - name: gcr.io/cloud-builders/npm
     args:
       - test
-      - '--prefix task-server'
     id: test
+    dir: '/task-server'
     entrypoint: npm
     waitFor: 
       - Buildpack
