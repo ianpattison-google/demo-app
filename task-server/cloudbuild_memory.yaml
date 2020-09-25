@@ -1,4 +1,16 @@
 steps:
+  - name: gcr.io/cloud-builders/npm
+    args:
+      - install
+    id: install
+    dir: 'task-server'
+  - name: gcr.io/cloud-builders/npm
+    args:
+      - test
+    id: test
+    dir: 'task-server'
+    waitFor: 
+      - install
   - name: gcr.io/k8s-skaffold/pack
     args:
       - build
@@ -7,6 +19,8 @@ steps:
       - '--path=task-server'
     id: Buildpack
     entrypoint: pack
+    waitFor: 
+      - test
   - name: gcr.io/cloud-builders/docker
     args:
       - push

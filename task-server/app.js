@@ -3,14 +3,14 @@ const cors = require('cors');
 const app = express();
 
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory');
-// const sequelize = new Sequelize('react-tasks', 'root', 'password', {
-//     dialect: 'mysql',
-//     host: '/cloudsql/ianpattison-react-tasks:europe-west1:react-tasks',
-//     dialectOptions: {
-//         socketPath: '/cloudsql/ianpattison-react-tasks:europe-west1:react-tasks'
-//     }
-// });
+// const sequelize = new Sequelize('sqlite::memory');
+const sequelize = new Sequelize('task-server', 'root', 'password', {
+    dialect: 'mysql',
+    host: '/cloudsql/ianpattison-demo-app:europe-west1:task-server',
+    // dialectOptions: {
+    //     socketPath: '/cloudsql/ianpattison-react-tasks:europe-west1:react-tasks'
+    // }
+});
 
 // define the ORM model
 const Todo = sequelize.define('Todo', {
