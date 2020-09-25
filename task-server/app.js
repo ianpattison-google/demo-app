@@ -6,21 +6,21 @@ const { Sequelize, DataTypes } = require('sequelize');
 // const sequelize = new Sequelize('sqlite::memory');
 const sequelize = new Sequelize('task-server', 'root', 'password', {
     dialect: 'mysql',
-    host: 'ianpattison-demo-app:europe-west1:task-server',
+    host: '/cloudsql/ianpattison-demo-app:europe-west1:task-server', 
     dialectOptions: {
-        socketPath: 'ianpattison-demo-app:europe-west1:task-server',
+        socketPath: '/cloudsql/ianpattison-demo-app:europe-west1:task-server',
     }
 });
 
 // define the ORM model
-const Todo = sequelize.define('Todo', {
+const Todo = sequelize.define('Todo', { 
     id:          { type: DataTypes.INTEGER, allowNull: false, primaryKey: true},
     text:        { type: DataTypes.STRING,  allowNull: false},
     isCompleted: { type: DataTypes.BOOLEAN, allowNull: false}
 });
 
 // set up test data if required
-// check the size of the collection
+// check the size of the collection 
 Todo.sync()
 .then(p => Todo.count())
 .then(count => {

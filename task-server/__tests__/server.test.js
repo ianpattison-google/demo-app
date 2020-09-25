@@ -11,7 +11,7 @@ const todo3 = { id:3, text: "Write React app", isCompleted: false };
 const todo3_updated = { id:3, text: "Write React app", isCompleted: true };
 const todo4 = { id:267, text: "Finish work", isCompleted: false };
 
-// initial data
+// initial data 
 beforeAll(async () => {
     await request(app).post('/todos').send(todo1);
     await request(app).post('/todos').send(todo2);
