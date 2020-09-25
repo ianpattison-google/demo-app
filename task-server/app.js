@@ -38,7 +38,13 @@ app.use(express.json());
 // GET a todo item by its ID value
 app.get('/todos/:id', (req, res) => {
     Todo.findByPk(parseInt(req.params.id))
-    .then(todo => { res.json(todo) })
+    .then(todo => {
+        if (todo === null) {
+            res.sendStatus(404);
+        } else {
+            res.json(todo);
+        }
+    })
 })
 
 // GET all todo items
