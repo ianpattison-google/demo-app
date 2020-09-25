@@ -7,9 +7,9 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('task-server', 'root', 'password', {
     dialect: 'mysql',
     host: '/cloudsql/ianpattison-demo-app:europe-west1:task-server',
-    // dialectOptions: {
-    //     socketPath: '/cloudsql/ianpattison-react-tasks:europe-west1:react-tasks'
-    // }
+    dialectOptions: {
+        socketPath: '/cloudsql/ianpattison-demo-app:europe-west1:task-server',
+    }
 });
 
 // define the ORM model
