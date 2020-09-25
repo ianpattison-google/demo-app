@@ -6,9 +6,9 @@ const { Sequelize, DataTypes } = require('sequelize');
 // const sequelize = new Sequelize('sqlite::memory');
 const sequelize = new Sequelize('task-server', 'root', 'password', {
     dialect: 'mysql',
-    host: '/cloudsql/ianpattison-demo-app:europe-west1:task-server',
+    host: 'ianpattison-demo-app:europe-west1:task-server',
     dialectOptions: {
-        socketPath: '/cloudsql/ianpattison-demo-app:europe-west1:task-server',
+        socketPath: 'ianpattison-demo-app:europe-west1:task-server',
     }
 });
 
