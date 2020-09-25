@@ -4,7 +4,7 @@ const app = express();
 
 const { Sequelize, DataTypes } = require('sequelize');
 // const sequelize = new Sequelize('sqlite::memory');
-const sequelize = new Sequelize('task-server', 'root', 'password', {
+const sequelize = new Sequelize('task_server', 'root', 'password', {
     dialect: 'mysql',
     // host: '/cloudsql/ianpattison-demo-app:europe-west1:task-server', 
     dialectOptions: {
