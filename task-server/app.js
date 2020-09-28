@@ -3,13 +3,22 @@ const cors = require('cors');
 const app = express();
 
 const { Sequelize, DataTypes } = require('sequelize');
+
+// in-memory database
 // const sequelize = new Sequelize('sqlite::memory');
+
+// Cloud SQL, app deployed locally
+// const sequelize = new Sequelize('task_server', 'root', 'password', {
+//     dialect: 'mysql',
+//     host: '127.0.0.1',
+//     pool: { max: 5, min:0, acquire: 30000, idle: 10000 }
+// });
+
+// Cloud SQL, app deployed to Cloud Run
 const sequelize = new Sequelize('task_server', 'root', 'password', {
     dialect: 'mysql',
-    // host: '/cloudsql/ianpattison-demo-app:europe-west1:task-server', 
-    dialectOptions: {
-        socketPath: '/cloudsql/ianpattison-demo-app:europe-west1:task-server',
-    }
+    dialectOptions: { socketPath: '/cloudsql/ianpattison-demo-app:europe-west1:task-server', },
+    pool: { max: 5, min:0, acquire: 30000, idle: 10000 }
 });
 
 // define the ORM model
